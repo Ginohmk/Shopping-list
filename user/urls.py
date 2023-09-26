@@ -7,4 +7,5 @@ urlpatterns = [
     path("verify-email/", apis.VerifyEmailApi.as_view(), name="verify-email"),
     path("login/", apis.LoginApi.as_view(), name="login"),
     path("logout/", apis.LogoutApi.as_view(), name="logout"),
+    path("me/", apis.UserApi.as_view(), name="me"),
 ]

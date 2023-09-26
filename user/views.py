@@ -86,8 +86,8 @@ class LoginApi(views.APIView):
 
 
 class LogoutApi(views.APIView):
-    # authentication_classes = (user_authentications.CustomUserAuthentication,)
-    # permission_classes = (user_permissions.CustomPermision,)
+    authentication_classes = (user_authentications.CustomUserAuthentication,)
+    permission_classes = (user_permissions.CustomPermision,)
 
     def post(self, request):
         res = response.Response()
@@ -97,3 +97,21 @@ class LogoutApi(views.APIView):
         res.delete_cookie("jwt")
         res.data = {"message": "Logged out Successfully"}
         return res
+
+
+class UserApi(views.APIView):
+    """
+    description: Endpoint to get current login user
+
+    return: user: json
+    """
+
+    authentication_classes = (user_authentications.CustomUserAuthentication,)
+    permission_classes = (user_permissions.CustomPermision,)
+
+    def get(self, request):
+        user = request.user
+
+        serializer = user_serializer.UserSerializer(user)
+
+        return response.Response(data=serializer.data)

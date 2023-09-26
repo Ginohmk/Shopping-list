@@ -14,7 +14,7 @@ class CustomUserAuthentication(authentication.BaseAuthentication):
             raise exceptions.AuthenticationFailed("Unauthorized")
 
         try:
-            payload = jwt.decode(token, settings.JWT_KEY, algorithms=["HS256"])
+            payload = jwt.decode(token, settings.JWT_SECRETE, algorithms=["HS256"])
 
         except:
             raise exceptions.AuthenticationFailed("Unauthorized")
