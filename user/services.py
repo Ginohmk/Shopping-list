@@ -94,8 +94,7 @@ def check_user_email(user_email: str) -> None:
 
     user = models.User.objects.filter(email=user_email).first()
 
-    if user:
-        raise exceptions.NotAcceptable("Email already exist")
+    return user
 
 
 # Create User

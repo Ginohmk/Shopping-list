@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from rest_framework import views, response, status
+from rest_framework import views, response, status, exceptions
 from . import serializers as user_serializer
 from . import services
-
+from . import user_permissions
+from . import user_authentications
 from django.conf import settings
 
 # For email sending
@@ -19,16 +20,15 @@ class UserRegistrationApi(views.APIView):
         user_data = serializer.validated_data
 
         # Check if email exist in db
-        services.check_user_email(user_data.email)
+        user = services.check_user_email(user_data.email)
+
+        if user:
+            raise exceptions.NotAcceptable("Email already exist")
 
         serializer.instance = services.create_user(user_data)
 
         #  Generate User Token for Email verification
         token = services.generate_token(serializer.data.get("id"))
-
-        current_siteR = get_current_site(request).domain
-
-        print(current_siteR)
 
         current_site = settings.USER_ENVIRONMENT
         relative_link = reverse("verify-email")
@@ -60,3 +60,40 @@ class VerifyEmailApi(views.APIView):
         resp.data = serializer.data
 
         return resp
+
+
+class LoginApi(views.APIView):
+    def post(self, request):
+        email = request.data["email"]
+        password = request.data["password"]
+
+        user_data = services.check_user_email(email)
+
+        if user_data is None:
+            raise exceptions.AuthenticationFailed("Wrong credentials provided")
+
+        if not user_data.check_password(raw_password=password):
+            raise exceptions.AuthenticationFailed("Wrong credentials provided")
+
+        # Token
+        token = services.generate_token(user_data.id)
+
+        resp = response.Response()
+
+        resp.set_cookie(key="jwt", value=token, httponly=True)
+
+        return resp
+
+
+class LogoutApi(views.APIView):
+    # authentication_classes = (user_authentications.CustomUserAuthentication,)
+    # permission_classes = (user_permissions.CustomPermision,)
+
+    def post(self, request):
+        res = response.Response()
+
+        print(request.user)
+
+        res.delete_cookie("jwt")
+        res.data = {"message": "Logged out Successfully"}
+        return res
