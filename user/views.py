@@ -26,6 +26,10 @@ class UserRegistrationApi(views.APIView):
         #  Generate User Token for Email verification
         token = services.generate_token(serializer.data.get("id"))
 
+        current_siteR = get_current_site(request).domain
+
+        print(current_siteR)
+
         current_site = settings.USER_ENVIRONMENT
         relative_link = reverse("verify-email")
         abs_url = current_site + relative_link + "?token=" + str(token)

@@ -30,7 +30,8 @@ SECRET_KEY = "django-insecure-!1+!4_^3p80r=)ca4$$nt9np#ck=$qjpud#30mkv#&vz%8p_dx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-USER_ENVIRONMENT = "http://127.0.0.1:8080/api/user/" if DEBUG else "Live"
+
+USER_ENVIRONMENT = "http://127.0.0.1:8000" if DEBUG else "Live"
 
 #  Jwt Secrete
 JWT_SECRETE = os.environ.get("JWT_SECRETE")
