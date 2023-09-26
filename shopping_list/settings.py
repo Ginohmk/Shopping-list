@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,6 +29,12 @@ SECRET_KEY = "django-insecure-!1+!4_^3p80r=)ca4$$nt9np#ck=$qjpud#30mkv#&vz%8p_dx
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+USER_ENVIRONMENT = "http://127.0.0.1:8080/api/user/" if DEBUG else "Live"
+
+#  Jwt Secrete
+JWT_SECRETE = os.environ.get("JWT_SECRETE")
+
 
 ALLOWED_HOSTS = []
 
@@ -130,3 +141,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #  Specify Where user model is located
 
 AUTH_USER_MODEL = "user.User"
+
+
+# Email setup
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get("HOST_EMAIL_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("HOST_EMAIL_PASSWORD")
