@@ -131,7 +131,7 @@ def create_user(user: "UserDataClass") -> "UserDataClass":
 
 
 def generate_token(user_id: str) -> str:
-    """Creates Token based pn user id.
+    """Creates Token based on user id.
 
     Parameters
     ----------
@@ -160,6 +160,20 @@ def generate_token(user_id: str) -> str:
 
 
 def send_email(data: dict) -> None:
+    """Send Email to user.
+
+    Parameters
+    ----------
+    data : object
+        Email data to be sent
+
+        Parameters
+        -----------
+          subject: str
+          body: str
+          user_email: str
+    """
+
     email = EmailMessage(
         subject=data.get("subject"),
         body=data.get("body"),
@@ -170,6 +184,23 @@ def send_email(data: dict) -> None:
 
 
 def verify_email_auth(token) -> "UserDataClass":
+    """Verify user authentication of email.
+
+    Parameters
+    ----------
+    token : str
+        token  to be decoded
+
+    Raises
+    ------
+    AuthenticationFailed
+        If token password is None or Empty & when token is invalid.
+
+    Returns
+    -------
+      token : UserDataClass, object insatnce of user
+
+    """
     if not token:
         raise exceptions.AuthenticationFailed("Unauthorized")
 

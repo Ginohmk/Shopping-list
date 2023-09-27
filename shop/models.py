@@ -25,3 +25,4 @@ class Shop(models.Model):
     is_complete = models.BooleanField(default=False, verbose_name="is complete")
     description = models.TextField(verbose_name="description")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
+    quantity = models.IntegerField(blank=False, null=False, default=0)

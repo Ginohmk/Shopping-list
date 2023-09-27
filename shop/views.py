@@ -1,3 +1,32 @@
 from django.shortcuts import render
 
-# Create your views here.
+from user import user_authentications, user_permissions
+
+from . import services
+
+
+from rest_framework import exceptions, views, response
+from . import serializers as shop_serializer
+
+
+class ShopApi(views.APIView):
+    authentication_classes = (user_authentications.CustomUserAuthentication,)
+    permission_classes = (user_permissions.CustomPermision,)
+
+    def post(self, request):
+        serializer = shop_serializer.ShopSerializer(data=request.data)
+
+        serializer.is_valid(raise_exception=True)
+
+        data = serializer.validated_data
+
+        serializer.instance = services.create_shop(request.user, data)
+
+        return response.Response(data=serializer.data)
+
+    def get(self, request):
+        shop_data = services.get_user_shop_list(request.user)
+
+        serializer = shop_serializer.ShopSerializer(shop_data, many=True)
+
+        return response.Response(data=serializer.data)
