@@ -10,7 +10,7 @@ class ShopSerializer(serializers.Serializer):
     title = serializers.CharField()
     due_date = serializers.DateTimeField()
     quantity = serializers.IntegerField()
-    is_complete = serializers.BooleanField(read_only=True)
+    is_complete = serializers.BooleanField()
     user = UserSerializer(read_only=True)
 
     def to_internal_value(self, data):
