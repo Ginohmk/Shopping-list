@@ -38,7 +38,7 @@ USER_ENVIRONMENT = "http://127.0.0.1:8000" if DEBUG else "Live"
 JWT_SECRETE = os.environ.get("JWT_SECRETE")
 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "kanuMikeC.pythonanywhere.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "shopping-list-47iy.onrender.com"]
 
 # Application definition
 
