@@ -183,7 +183,11 @@ def send_email(data: dict) -> None:
         from_email=settings.EMAIL_HOST_USER,
         to=[data.get("user_email")],
     )
-    email.send()
+
+    try:
+        email.send()
+    except:
+        exceptions.ErrorDetail("Email sending error")
 
 
 def verify_email_auth(token) -> "UserDataClass":
