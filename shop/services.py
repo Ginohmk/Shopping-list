@@ -89,7 +89,7 @@ def get_user_shop_item(user: "User", shop_id: int) -> "ShopDataClass":
     return ShopDataClass.from_instance(shop)
 
 
-def delete_user_shop_item(user: "User", shop_id: str) -> "ShopDataClass":
+def delete_user_shop_item(user: "User", shop_id: str):
     check_valid_uuid(shop_id)
 
     shop = models.Shop.objects.filter(id=shop_id).first()
