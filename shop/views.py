@@ -47,7 +47,7 @@ class UpdateRetreiveDeleteShopApi(views.APIView):
         services.delete_user_shop_item(request.user, shop_id)
 
         return response.Response(
-            data={"message": "Deleted successfully"}, status=status.HTTP_200_OK
+            data={"message": "Deleted successfully"}, status=status.HTTP_204_NO_CONTENT
         )
 
     def put(self, request, shop_id):
