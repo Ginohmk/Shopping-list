@@ -26,3 +26,6 @@ class Shop(models.Model):
     description = models.TextField(verbose_name="description")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
     quantity = models.IntegerField(blank=False, null=False, default=0)
+
+    def __str__(self) -> str:
+        return self.title
