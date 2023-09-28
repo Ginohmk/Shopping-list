@@ -42,7 +42,7 @@ class UserRegistrationApi(views.APIView):
 
         services.send_email(email_info)
 
-        return response.Response(data=serializer.data)
+        return response.Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
 class VerifyEmailApi(views.APIView):
@@ -58,6 +58,7 @@ class VerifyEmailApi(views.APIView):
         serializer = user_serializer.UserSerializer(user_data)
 
         resp.data = serializer.data
+        resp.status_code = status.HTTP_202_ACCEPTED
 
         return resp
 
@@ -82,6 +83,8 @@ class LoginApi(views.APIView):
 
         resp.set_cookie(key="jwt", value=token, httponly=True)
 
+        resp.status_code = status.HTTP_204_NO_CONTENT
+
         return resp
 
 
@@ -96,6 +99,7 @@ class LogoutApi(views.APIView):
 
         res.delete_cookie("jwt")
         res.data = {"message": "Logged out Successfully"}
+        res.status_code = status.HTTP_204_NO_CONTENT
         return res
 
 
@@ -114,4 +118,4 @@ class UserApi(views.APIView):
 
         serializer = user_serializer.UserSerializer(user)
 
-        return response.Response(data=serializer.data)
+        return response.Response(data=serializer.data, status=status.HTTP_200_OK)
