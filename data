@@ -13,5 +13,19 @@
     "due_date": "2023-09-27 09:39:46.827579",
     "quantity": 2,
     "is_complete": true
+  },
+  {
+    "description": "Garri use for cooking stew",
+    "priority": 3,
+    "title": "Freash tomatoes ma",
+    "due_date": "2023-09-27 09:39:46.827579",
+    "quantity": 8,
+    "is_complete": true
+  },
+  {
+    "email": "royalcodemate@gmail.com",
+    "password": "12345678",
+    "first_name": "Johnny",
+    "last_name": "royal"
   }
 ]

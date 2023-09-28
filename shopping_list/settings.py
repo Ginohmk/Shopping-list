@@ -32,10 +32,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = "RENDER" not in os.environ
 
 # Local
-# USER_ENVIRONMENT = "http://127.0.0.1:8000"
+USER_ENVIRONMENT = "http://127.0.0.1:8000"
 
 # Live
-USER_ENVIRONMENT = "https://shopping-list-hn5r.onrender.com"
+# USER_ENVIRONMENT = "https://shopping-list-hn5r.onrender.com"
 
 #  Jwt Secrete
 JWT_SECRETE = os.environ.get("JWT_SECRETE")
