@@ -20,7 +20,7 @@ This app is to enable creating and managing shopping lists. The app is developed
 
 3. Email verification: users receives email notification to confirm registered email.
 
-4. User can perform CRUD operation on the shopping list beloging to them.
+4. User can perform CRUD operation on the shopping list belonging to them.
 
 ## Starting
 
@@ -178,7 +178,7 @@ This are the folders and files relevant to this project.
 
 5. Email verification `/api/user/verify-email/` (Post)
 
-`Note: Verification link is sent to user and  when clicked they can verify thier email`
+`Note: Verification link is sent to user and  when clicked they can verify their email`
 
 - Payload `None`
 
@@ -190,17 +190,16 @@ This are the folders and files relevant to this project.
 
 1.  Create shop `/api/shops/` (Post)
 
-`Note: priority accepts min = 1 and max = 10`
-
 - Payload
 
 ```json
 {
+ "description": "string",
+ "priority": int,
  "title": "string",
- "content": "string",
  "due_date": "string datetime",
- "is_complete": boolean,
- "priority": int
+ "quantity": int,
+ "is_complete": boolean
 }
 ```
 
@@ -209,12 +208,12 @@ This are the folders and files relevant to this project.
 ```json
 {
  "id": "uuid string",
- "title": "string",
- "content": "string",
- "created_at": null,
- "due_date": "string datetime",
+ "description": "string",
  "priority": int,
- "is_complete": boolean,
+ "title": "string",
+ "due_date": "string datetime",
+ "quantity": int,
+ "is_complete": boolean
  "user": {
    "id": "string",
    "first_name": "string",
@@ -226,7 +225,7 @@ This are the folders and files relevant to this project.
 
   <br />
 
-2. Get user notes `/api/note/create/` (Get)
+2. Get All shop `/api/shops/` (Get)
 
    - Response 200
 
@@ -234,12 +233,12 @@ This are the folders and files relevant to this project.
     [
       {
         "id": "uuid string",
-        "title": "string",
-        "content": "string",
-        "created_at": null,
-        "due_date": "string datetime",
+        "description": "string",
         "priority": int,
-        "is_complete": boolean,
+        "title": "string",
+        "due_date": "string datetime",
+        "quantity": int,
+        "is_complete": boolean
         "user": {
           "id": "string",
           "first_name": "string",
@@ -252,46 +251,23 @@ This are the folders and files relevant to this project.
 
      <br />
 
-3. Get all notes `/api/note/` (Get)
-
-   - Response 200
-
-   ```json
-    [
-      {
-        "id": "uuid string",
-        "title": "string",
-        "content": "string",
-        "created_at": null,
-        "due_date": "string datetime",
-        "priority": int,
-        "is_complete": boolean,
-        "user": {
-          "id": "string",
-          "first_name": "string",
-          "last_name": "string",
-          "email": "string"
-        }
-      }
-    ]
-   ```
-
-4. Delete note `/api/note/<id: str>/` (Delete)
+3. Delete shop `/api/shops/<id: str>/` (Delete)
 
    - Response 204
      <br />
 
-5. Update note `/api/note/<id: str>/` (Put)
+4. Update shop `/api/shops/<id: str>/` (Put)
 
 - Payload
 
   ```json
   {
+  "description": "string",
+  "priority": int,
   "title": "string",
-  "content": "string",
   "due_date": "string datetime",
-  "is_complete": boolean,
-  "priority": int
+  "quantity": int,
+  "is_complete": boolean
   }
   ```
 
@@ -300,12 +276,12 @@ This are the folders and files relevant to this project.
 ```json
    {
      "id": "uuid string",
-     "title": "string",
-     "content": "string",
-     "created_at": null,
-     "due_date": "string datetime",
+     "description": "string",
      "priority": int,
-     "is_complete": boolean,
+     "title": "string",
+     "due_date": "string datetime",
+     "quantity": int,
+     "is_complete": boolean
      "user": {
        "id": "string",
        "first_name": "string",
@@ -315,19 +291,19 @@ This are the folders and files relevant to this project.
    }
 ```
 
-5. Retreive note `/api/note/<id: str>/` (Get)
+5. Retreive sinfle shop `/api/shops/<id: str>/` (Get)
 
 - Response 200
 
 ```json
    {
      "id": "uuid string",
-     "title": "string",
-     "content": "string",
-     "created_at": null,
-     "due_date": "string datetime",
+     "description": "string",
      "priority": int,
-     "is_complete": boolean,
+     "title": "string",
+     "due_date": "string datetime",
+     "quantity": int,
+     "is_complete": boolean
      "user": {
        "id": "string",
        "first_name": "string",
@@ -347,6 +323,10 @@ This are the folders and files relevant to this project.
 - LinkedIn: [@kanumike](https://www.linkedin.com/in/mike-kanu-dev/)
 - Instagram: [@savy_kanu_mike](https/instagram.com/savy_kanu_mike)
 - Facebook: [@mike.kanu](https://www.facebook.com/mike.kanu)
+
+👤 **Evan Guma**
+
+- GitHub: [@ayera-4](https://github.com/ayera-4)
 
 ### 🤝 Contribute
 
