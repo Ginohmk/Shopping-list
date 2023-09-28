@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
         user.is_active = True
         user.is_staff = is_staff
         user.is_superuser = is_superuser
-        is_email_verified = is_email_verified
+        user.is_email_verified = is_email_verified
 
         # save to db
         user.save()
