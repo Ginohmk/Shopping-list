@@ -31,14 +31,17 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "RENDER" not in os.environ
 
+# Local
+# USER_ENVIRONMENT = "http://127.0.0.1:8000"
 
-USER_ENVIRONMENT = "http://127.0.0.1:8000" if DEBUG != "RENDER" else "Live"
+# Live
+USER_ENVIRONMENT = "https://shopping-list-hn5r.onrender.com"
 
 #  Jwt Secrete
 JWT_SECRETE = os.environ.get("JWT_SECRETE")
 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "shopping-list-47iy.onrender.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Auto get RENDER HOST NAME
