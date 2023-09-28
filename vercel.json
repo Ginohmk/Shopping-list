@@ -1,0 +1,16 @@
+{
+  "builds": [
+    {
+      "src": "shopping_list/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambaSize": "15mb", "runtime": "python3.10.12" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+
+      "dest": "elevate/wsgi.py"
+    }
+  ]
+}
