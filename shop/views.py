@@ -61,4 +61,4 @@ class UpdateRetreiveDeleteShopApi(views.APIView):
             request.user, shop_id, shop_data
         )
 
-        return response.Response(data=serializer.data, status=status.HTTP_200_OK)
+        return response.Response(data=serializer.data, status=status.HTTP_202_ACCEPTED)
