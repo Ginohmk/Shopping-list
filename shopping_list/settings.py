@@ -172,12 +172,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "user.User"
 
-DJANGO_SUPERUSER_FIRST_NAME = "MIke"
-DJANGO_SUPERUSER_LAST_NAME = "John"
-DJANGO_SUPERUSER_EMAIL = "michotall95@gmail.com"
-DJANGO_SUPERUSER_PASSWORD = "12345678"
-
-
 # Email setup
 EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
