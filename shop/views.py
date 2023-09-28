@@ -41,7 +41,7 @@ class UpdateRetreiveDeleteShopApi(views.APIView):
 
         serializer = shop_serializer.ShopSerializer(shop_data)
 
-        return response.Response(data=serializer.data)
+        return response.Response(data=serializer.data, status=status.HTTP_200_OK)
 
     def delete(self, request, shop_id):
         services.delete_user_shop_item(request.user, shop_id)
