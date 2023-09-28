@@ -154,7 +154,10 @@ def generate_token(user_id: str) -> str:
         "iat": datetime.datetime.utcnow(),
     }
 
-    token = jwt.encode(payload, settings.JWT_SECRETE, algorithm="HS256")
+    try:
+        token = jwt.encode(payload, settings.JWT_SECRETE, algorithm="HS256")
+    except:
+        exceptions.ErrorDetail("token creation failed")
 
     return token
 
