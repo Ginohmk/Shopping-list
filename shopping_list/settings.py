@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-!1+!4_^3p80r=)ca4$$nt9np#ck=$qjpud#30mkv#&vz%8p_dx"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 USER_ENVIRONMENT = "http://127.0.0.1:8000" if DEBUG else "Live"
@@ -37,8 +37,7 @@ USER_ENVIRONMENT = "http://127.0.0.1:8000" if DEBUG else "Live"
 JWT_SECRETE = os.environ.get("JWT_SECRETE")
 
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "kanuMikeC.pythonanywhere.com"]
 
 # Application definition
 
@@ -133,6 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
