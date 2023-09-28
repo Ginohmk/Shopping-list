@@ -64,6 +64,9 @@ class VerifyEmailApi(views.APIView):
 
 
 class LoginApi(views.APIView):
+    authentication_classes = (user_authentications.CustomUserAuthentication,)
+    permission_classes = (user_permissions.CustomPermision,)
+
     def post(self, request):
         email = request.data["email"]
         password = request.data["password"]
