@@ -32,8 +32,6 @@ class UserDataClass:
     email : str
         The user email
 
-    is_email_verified : bool, default None
-        The user , if email is verified
 
     password : str, default None
         The user password
@@ -50,7 +48,6 @@ class UserDataClass:
     first_name: str
     last_name: str
     email: str
-    is_email_verified: bool = None
     password: str = None
     id: str = None
 
@@ -72,7 +69,6 @@ class UserDataClass:
             first_name=user.first_name,
             last_name=user.last_name,
             email=user.email,
-            is_email_verified=user.is_email_verified,
             id=user.id,
         )
 
@@ -188,39 +184,3 @@ def send_email(data: dict) -> None:
         email.send()
     except:
         exceptions.ErrorDetail("Email sending error")
-
-
-def verify_email_auth(token) -> "UserDataClass":
-    """Verify user authentication of email.
-
-    Parameters
-    ----------
-    token : str
-        token  to be decoded
-
-    Raises
-    ------
-    AuthenticationFailed
-        If token password is None or Empty & when token is invalid.
-
-    Returns
-    -------
-      token : UserDataClass, object insatnce of user
-
-    """
-    if not token:
-        raise exceptions.AuthenticationFailed("Unauthorized")
-
-    try:
-        payload = jwt.decode(token, settings.JWT_SECRETE, algorithms=["HS256"])
-
-        user = models.User.objects.filter(id=payload.get("id")).first()
-
-        user.is_email_verified = True
-
-        user.save()
-
-        return UserDataClass.from_instance(user)
-
-    except:
-        raise exceptions.AuthenticationFailed("Unauthorized")

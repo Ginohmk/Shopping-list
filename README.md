@@ -111,8 +111,7 @@ This are the folders and files relevant to this project.
      "first_name": "string",
      "last_name": "string",
      "email ": "string",
-     "password": "string",
-     "is_email_verified": boolean
+     "password": "string"
    }
    ```
 
@@ -123,8 +122,7 @@ This are the folders and files relevant to this project.
      "id": "string",
      "first_name": "string",
      "last_name": "string",
-     "email ": "string",
-     "is_email_verified": false
+     "email ": "string"
    }
    ```
 
@@ -169,8 +167,7 @@ This are the folders and files relevant to this project.
      "id": "string",
      "first_name": "string",
      "last_name": "string",
-     "email ": "string",
-     "is_email_verified": boolean
+     "email ": "string"
    }
    ```
 

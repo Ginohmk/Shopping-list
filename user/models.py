@@ -14,7 +14,6 @@ class UserManager(BaseUserManager):
         password: str,
         is_staff: bool = False,
         is_superuser: bool = False,
-        is_email_verified=False,
     ) -> "User":
         if not email:
             raise ValueError("User must have an email")
@@ -30,7 +29,6 @@ class UserManager(BaseUserManager):
         user.is_active = True
         user.is_staff = is_staff
         user.is_superuser = is_superuser
-        user.is_email_verified = is_email_verified
 
         # save to db
         user.save()
@@ -47,7 +45,6 @@ class UserManager(BaseUserManager):
             password=password,
             is_staff=True,
             is_superuser=True,
-            is_email_verified=True,
         )
 
 
@@ -58,7 +55,6 @@ class User(AbstractUser):
 
     password = models.CharField(max_length=255, blank=False, null=False)
     email = models.EmailField(max_length=250, blank=False, null=False, unique=True)
-    is_email_verified = models.BooleanField(default=False)
     username = None
 
     objects = UserManager()
