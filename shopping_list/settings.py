@@ -181,7 +181,10 @@ EMAIL_HOST_PASSWORD = os.environ.get("HOST_EMAIL_PASSWORD")
 
 
 # Cors
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://shopping-list-cguf.onrender.com/",
+]
 CORS_ALLOW_METHODS = (
     "DELETE",
     "GET",
