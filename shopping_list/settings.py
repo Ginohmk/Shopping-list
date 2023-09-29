@@ -35,7 +35,7 @@ DEBUG = "RENDER" not in os.environ
 # USER_ENVIRONMENT = "http://127.0.0.1:8000"
 
 # Live
-USER_ENVIRONMENT = "https://shopping-list-hn5r.onrender.com"
+USER_ENVIRONMENT = "https://shopping-list-cguf.onrender.com"
 
 #  Jwt Secrete
 JWT_SECRETE = os.environ.get("JWT_SECRETE")
