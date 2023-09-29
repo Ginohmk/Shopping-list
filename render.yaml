@@ -1,6 +1,6 @@
 databases:
   - name: shopping_list
-    databaseName: sqlite3
+    databaseName: db.sqlite3
     user: shopping_list
 
 services:

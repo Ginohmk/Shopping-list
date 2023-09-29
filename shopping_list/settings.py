@@ -178,3 +178,15 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get("HOST_EMAIL_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("HOST_EMAIL_PASSWORD")
+
+
+# Cors
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
