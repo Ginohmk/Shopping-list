@@ -106,6 +106,8 @@ def update_user_shop_item(
 
     shop = models.Shop.objects.filter(id=shop_id).first()
 
+    update_delete_retreive_shop_checker(shop, user)
+
     shop.title = shop_data.title
     shop.is_complete = shop_data.is_complete
     shop.description = shop_data.description

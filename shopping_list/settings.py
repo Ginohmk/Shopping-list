@@ -35,13 +35,13 @@ DEBUG = "RENDER" not in os.environ
 # USER_ENVIRONMENT = "http://127.0.0.1:8000"
 
 # Live
-USER_ENVIRONMENT = "https://shopping-list-cguf.onrender.com"
+USER_ENVIRONMENT = "https://kanumikec.pythonanywhere.com"
 
 #  Jwt Secrete
 JWT_SECRETE = os.environ.get("JWT_SECRETE")
 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "kanumikec.pythonanywhere"]
 
 
 # Auto get RENDER HOST NAME
@@ -184,6 +184,7 @@ EMAIL_HOST_PASSWORD = os.environ.get("HOST_EMAIL_PASSWORD")
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://shopping-list-cguf.onrender.com",
+    "https://kanumikec.pythonanywhere.com",
 ]
 CORS_ALLOW_METHODS = (
     "DELETE",
