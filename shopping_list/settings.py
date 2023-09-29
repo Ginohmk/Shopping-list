@@ -108,11 +108,9 @@ WSGI_APPLICATION = "shopping_list.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-# "NAME": BASE_DIR / "db.sqlite3",
 
 
 # Password validation
@@ -158,7 +156,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 # Following settings only make sense on production and may break development environments.
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = BASE_DIR / "staticfiles"
 # Turn on WhiteNoise storage backend that takes care of compressing static files
 # and creating unique names for each version so they can safely be cached forever.
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
