@@ -72,28 +72,30 @@ This app is to enable creating and managing shopping lists. The app is developed
 
 This are the folders and files relevant to this project.
 
+```
 ├── shopping_list # Project file
-' ├── settings.py
-' ├── urls.py
+ ├── settings.py
+ ├── urls.py
 ├── shop # Shopping_list app <br>
-' ├── admin.py
-' ├── models.py
-' ├── serializers.py
-....├── services.py
-....├── urls.py
-....├── views.py
+ ├── admin.py
+ ├── models.py
+ ├── serializers.py
+ ├── services.py
+ ├── urls.py
+ ├── views.py
 ├── user # User app
-....├── admin.py
-....├── user_authentications.py # Custom authentication
-....├── models.py
-....├── user_permissions.py # Custom permision
-....├── serializers.py
-....├── services.py
-....├── urls.py
-....├── views.py
+ ├── admin.py
+ ├── user_authentications.py # Custom authentication
+ ├── models.py
+ ├── user_permissions.py # Custom permision
+ ├── serializers.py
+ ├── services.py
+ ├── urls.py
+ ├── views.py
 ├── manage.py
 ├── README.md
 ├── requirements.txt
+```
 
   <br />
 
